@@ -1,0 +1,32 @@
+# convert the int to a string and reverse the string to see if the its a paalindrome or not
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        num  = str(x)
+        if num == str(x)[: : -1]:
+            return True
+        else:
+            return False
+            
+            
+            
+            
+# using math properties to find the paalndrom:
+#important part how to convert the second half of the number to verify the first part and the stopping condition for the while loop
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x<0 or (x>0 and x %10 == 0):
+            return False
+        
+    
+        revertedNumber = 0
+
+
+        while x >revertedNumber:
+            revertedNumber = revertedNumber *10 + x %  10
+            x = x//10
+            
+            if x == revertedNumber or x == revertedNumber//10:
+                return True
+            else:
+                return False
