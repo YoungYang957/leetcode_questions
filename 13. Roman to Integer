@@ -1,0 +1,54 @@
+"""
+first identify the problem that needs to use of a dictionary
+second, identify the problem that there's a relation between the indexes and need to find the edging case
+use one for loop and see if i+1 is out of range
+"""
+
+
+
+
+
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        # mapping from key to value ----> dictionary
+        dic = {
+            "I" : 1,
+            "V" : 5,
+            "X" : 10,
+            "L" : 50,
+            "C" : 100,
+            "D" : 500,
+            "M" : 1000,
+        }
+        result = 0 
+        for i in range(len(s)):
+            if i+1<len(s) and dic[s[i]] < dic[s[i+1]]:
+                result -= dic[s[i]]
+            else:
+                result += dic[s[i]]
+        
+        return result
+
+
+        # result = 0
+        # for i, item_1 in enumerate(s):
+        #     for j, item_2 in enumerate(s,start=1):
+        #         if j<len(s) and dic[s[j]]> dic[s[i]]:
+                   
+        #             result -= dic[s[i]]
+        #         else:
+        #             result += dic[item_1]
+        
+        # return result
+        
+        
+        
+        # result = 0
+        # for i in s:
+        #     for i+1 in s:
+        #         if i == "I" and i+1 == "V" or i+1== "X":
+                    
+        #         elif i == "I" and i+1 == "L" or i+1== "C":
+                
+        #         elif i == "C" and i+1 == "D" or i+1== "M":
