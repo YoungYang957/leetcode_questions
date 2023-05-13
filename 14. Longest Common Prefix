@@ -1,0 +1,29 @@
+# first observe the order that the smallest string must can be the first clue to find the common prefix
+# a lot of edging cases
+#the string[0:len(string)] print the full string
+
+
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        ans = ""
+        new_list = sorted(strs, key=len)
+        if new_list[0] == "":
+            return ans
+        if len(new_list) ==1:
+            return new_list[0]
+        shortest_str = len(new_list[0])
+        
+        for string in new_list[1:]:
+            if shortest_str == 0:
+                if string[0] == new_list[0][0]:
+                    return new_list[0][0]
+            while string[0:shortest_str] != new_list[0][0:shortest_str]:
+                shortest_str -=1
+                
+
+                if shortest_str <= 0:
+                    return ans
+               
+        ans = new_list[0][0:shortest_str]
+        return ans
