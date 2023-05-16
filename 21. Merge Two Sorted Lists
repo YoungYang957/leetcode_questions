@@ -1,0 +1,35 @@
+#https://leetcode.com/problems/merge-two-sorted-lists/solutions/3410575/video-step-by-step-visualization-and-explanation/?languageTags=python3
+
+"""
+link list question, first init the head node(including the head node and the pointer(current)). when we are sorting two already sorted
+list, we use while list1 and list2 two loop through them at the same time and compare their value. the smaller value will be added to the 
+list and the list =list.next. After every comparison, we advance the current = current.next. At the end, when one list is empty, we use pointer 
+= list1 or list2 to add all the remain of the elements in the list to the sorted list.
+"""
+
+
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        head = ListNode()
+        current = head 
+
+        while list1 and list2:
+            if list1.val < list2.val:
+                current.next = list1
+                list1 = list1.next
+            
+            else:
+                current.next = list2
+                list2 = list2.next
+            
+            current =current.next
+
+        current.next = list1 or list2
+        return head.next
