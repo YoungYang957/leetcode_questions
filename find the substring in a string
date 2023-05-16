@@ -1,0 +1,37 @@
+# sliding window question. find if a substring is in the string and find the exact index of that substring. 
+# We use the idea of sliding window and compare each length of the substring one by one to see if matches,
+# each time we advance the window by 1.
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        size_big = len(haystack)
+        size_small = len(needle)
+        
+        if needle in  haystack:
+
+            for i in range(size_big):
+                if haystack[i:size_small+i] == needle:
+                    return i
+
+        else:
+            return -1
+
+
+# not sure why this wont work 
+        # if needle not in haystack:
+        #     return -1
+        # else:
+        #     for i in range (0,size_big-size_small):
+        #         if haystack[i:i+size_small] == needle:
+        #             break
+        #             return i 
+        
+
+    #     class Solution:
+    # def strStr(self, haystack: str, needle: str) -> int:
+    #     top=len(needle)
+    #     for i in range(len(haystack)):
+    #         if haystack[i:top+i]==needle:
+    #             return i
+    #     else:
+    #         return -1
