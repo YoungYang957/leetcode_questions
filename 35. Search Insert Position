@@ -1,0 +1,22 @@
+#fairly easy question, pretty standard list manipulation. 
+#two edge cases, first one is the target smaller than the whole list, second is the target larger than the whole list
+
+
+
+
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        if nums[-1]< target:
+            return len(nums)
+
+        if target< nums[0]:
+            return 0
+
+        for i in range(len(nums)):
+            if nums[i] == target:
+                return i
+            
+        
+            if nums[i] < target and nums[i+1] > target:
+                return i+1
+ 
