@@ -1,0 +1,8 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        #two ways of doing this, the first one is using the naive approach, which is loop through and find the last " " and find the index of that and substract that with the total length
+        # im feeling lazy today so we are going to use the second approach, which is function split()
+
+
+        new_list = s.split()
+        return len(new_list[-1])
