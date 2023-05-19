@@ -1,0 +1,38 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        #we can also just transfer it to a int and transfer it back
+        string = ""
+        for numbers  in digits:
+            string += str(numbers)
+
+
+        temp = str(int(string)+1)
+    
+        return [int(temp[i]) for i in range(len(temp))]
+
+
+
+
+
+
+
+
+
+        # we can detect all the 9s 
+        # if digits[0] == 0:
+        #     return [1]
+
+
+        # if digits[-1] == 9:
+            
+        #     for i in range(2,len(digits)):
+        #         if digits[-i] == 9:
+        #             digits[-i] == 0
+                    
+
+        # if digits[i:len(digits)-1]:
+        #     digits[-1]= 0
+        #     digits[-2] +=1
+
+        # digits[-1] +=1
+        # return digits        
