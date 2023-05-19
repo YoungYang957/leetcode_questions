@@ -1,0 +1,29 @@
+#this question is pretty interesting, and we can use this method on any list or string adding
+#the first is we want to start from the back and work our way to the front.
+#we need to bring a new variable to record the carry over and the last digit and to see if all the carry has been solved
+# last we converse the list back to a string
+
+
+
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        i = len(a)-1
+        j = len(b)-1
+        carry = 0
+        new_list = []
+
+        while i >=0 or j>=0 or carry:
+
+            if i>=0:
+                carry += int(a[i])
+                i-=1 
+
+            if j >=0:
+                carry += int(b[j])
+                j -=1
+
+            
+            new_list.append(str(carry%2))
+            carry //=2
+
+        return  ''.join(reversed(new_list))
