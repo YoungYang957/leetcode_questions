@@ -1,0 +1,51 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and  not q:
+            return True
+
+        if not p or not q:
+            return False
+
+        if p.val != q.val:
+            return False
+
+
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right,q.right) 
+ 
+              
+        # i want to  inorder traversal both tree at the same time and if the ouput lists are the same, then theyre the same tree
+        # res1 = []
+        # res2 = []
+
+        # def inorder1(root):
+        #     if not root:
+        #         return 
+            
+        #         inorder(root.left)
+        #         res1.append(root.val)
+        #         inorder(root.right)
+
+        # def inorder2(root):
+        #     if not root:
+        #         return 
+            
+        #         inorder(root.left)
+        #         res2.append(root.val)
+        #         inorder(root.right)  
+
+        # inorder1(p)
+        # inorder2(q)
+
+        # if res1 == res2:
+        #     return True
+        # else:
+        #     return False
