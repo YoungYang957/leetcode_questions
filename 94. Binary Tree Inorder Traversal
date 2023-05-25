@@ -1,0 +1,30 @@
+# we can use recurssive and we can use iterative to solve this, in this case, we used recurssive
+
+# its important to review the concept of recurrsive and the concept of binary treee, and concept of stack and how stack was used in this
+
+
+
+
+
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+
+        def inorder(root):
+            if not root:
+                return
+            
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
+
+        inorder(root)
+        return res
