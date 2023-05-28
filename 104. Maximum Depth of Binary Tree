@@ -1,0 +1,47 @@
+# three ways to do this, recurrssion, depth first, iterable
+# the first one is most easiest but hard to compreshend, the second one need to use of a deque and the third one need to use a stack
+# the second one append the children once the mother node got pop and the queue got pop one by one 
+# the third one use a stack to pop and compare the depth with the original
+
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # if not root:
+        #     return 0
+
+        # return 1+ max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+        if not root:
+            return 0
+
+        # level = 0
+        # q = deque([root])
+
+        # while q:
+        #     for i in range(len(q)):
+        #         node = q.popleft()
+        #         if node.left:
+        #             q.append(node.left)
+        #         if node.right:
+        #             q.append(node.right)
+        #     level +=1
+        # return level
+
+        stack = [[root,1]]
+        res = 1
+        while stack: 
+            node, depth = stack.pop()
+
+            if node:
+                
+                stack.append([node.left, depth+1])
+                stack.append([node.right,depth+1])
+                res = max(res, depth)
+        return res
